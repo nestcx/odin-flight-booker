@@ -1,0 +1,10 @@
+<%= form_tag("/index", method: "get") do %>
+	<p>From:</p>
+	<%= select_tag(:airport, options_for_select(@airports)) %>
+	<p>To:</p>
+	<%= select_tag(:airport, options_for_select(@airports)) %>
+	<p>Number of passengers</p>
+	<%= select_tag "people", options_for_select(@passenger_count) %>
+	<p>Date:</p>
+	<%= select_tag(:airport, options_for_select(@dates)) %>
+<% end %>

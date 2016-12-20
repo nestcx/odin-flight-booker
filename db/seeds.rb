@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Flight.delete_all
+Airport.delete_all
+
+airports_list = [
+	["San Francisco Airport", "SFO"], 
+	["California Airport", "CLA"], 
+	["New York Airport", "NYC"],
+	["Los Angeles Airport", "LAC"],
+	["Romania Central Airport", "RCA"],
+	["Portland Oregan Airport", "POA"]
+]
+
+airports_list.each do |full_name, shortened_name|
+	Airport.create(full_name: full_name, shortened_name: shortened_name)
+end
+
+20.times do
+	Flight.create(start: Time.now + rand(-9999..9999), duration: rand(40..1020), to_airport_id: Airport.all.sample.id, from_airport_id: Airport.all.sample.id)
+end
