@@ -1,0 +1,10 @@
+Flights available:<br>
+
+<%= form_tag("bookings/new", method: "get") do %>
+	<% @results.each do |x| %>
+		<%= radio_button_tag :flight_id, x.id %>
+		<%= x.start %> <br>
+	<% end %>
+	<%= hidden_field_tag(:passengers, params[:people]) %>
+	<%= submit_tag("Next step") %>
+<% end %>

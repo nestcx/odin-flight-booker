@@ -1,0 +1,7 @@
+<% @from_airport = Airport.find(@flight.from_airport_id) %>
+<%= @from_airport.full_name %> ->
+<% @to_airport = Airport.find(@flight.to_airport_id) %>
+<%= @to_airport.full_name %><br>
+Departure: <%= @flight.start %><br>
+ID: <%= @flight.id %>
+<br><br>

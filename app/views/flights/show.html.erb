@@ -1,0 +1,6 @@
+<%= render 'shared/flight_info' %>
+
+Passengers:<br>
+<% @flight.passengers.each do |x| %>
+- <%= x.name %><br>
+<% end %>

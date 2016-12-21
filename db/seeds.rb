@@ -21,6 +21,6 @@ airports_list.each do |full_name, shortened_name|
 	Airport.create(full_name: full_name, shortened_name: shortened_name)
 end
 
-20.times do
-	Flight.create(start: Time.now + rand(-9999..9999), duration: rand(40..1020), to_airport_id: Airport.all.sample.id, from_airport_id: Airport.all.sample.id)
+200.times do
+	Flight.create(start: Time.now + rand(-99999..99999), duration: rand(40..1020), to_airport_id: Airport.all.sample.id, from_airport_id: Airport.all.sample.id)
 end
