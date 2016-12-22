@@ -1,0 +1,6 @@
+<h1><%= @airport.full_name %></h1>
+<% @airport.departing_flights.each do |flight| %>
+	<% @flight = flight %>
+  <%= link_to "Show Flight", flight %><br>
+	<%= render 'shared/flight_info' %>
+<% end %>

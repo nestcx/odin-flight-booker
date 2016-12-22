@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221131541) do
+ActiveRecord::Schema.define(version: 20161222052941) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "full_name"
@@ -21,13 +21,9 @@ ActiveRecord::Schema.define(version: 20161221131541) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "flight_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "user_id"
-    t.integer  "passenger_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
-    t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -41,13 +37,20 @@ ActiveRecord::Schema.define(version: 20161221131541) do
     t.index ["to_airport_id"], name: "index_flights_on_to_airport_id"
   end
 
+  create_table "passenger_bookings", force: :cascade do |t|
+    t.integer  "passenger_id"
+    t.integer  "booking_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["booking_id"], name: "index_passenger_bookings_on_booking_id"
+    t.index ["passenger_id"], name: "index_passenger_bookings_on_passenger_id"
+  end
+
   create_table "passengers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_passengers_on_booking_id"
   end
 
 end

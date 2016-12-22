@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	resources :airports
+
   get 'bookings/new'
 
 	resources :flights

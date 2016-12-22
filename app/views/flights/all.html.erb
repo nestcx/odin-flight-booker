@@ -1,3 +1,5 @@
-<% @flights.each do |x| %>
-<%= link_to x.id, x %><br>
+<% @flights.each do |flight| %>
+	<% @flight = flight %>
+	<%= link_to "Show Flight", flight%><br>
+	<%= render 'shared/flight_info' %>
 <% end %>
